@@ -35,6 +35,10 @@ __Note:__ This allows the MDB application to receive all the batch job log event
 
 Now the MDB application will create a directory called "JobLogEvents" under the configured server's main directory. It will contain all of the batch job log parts from all servers that have batch events enabled and produce job log parts.
 
+**Example directory structure created:**
+
+![alt tag](https://github.com/WASdev/sample.batch.joblogevents/blob/master/images/jobLogDirStructure.png)
+
 ## Notice
 
 © Copyright IBM Corporation 2016.
