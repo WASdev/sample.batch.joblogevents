@@ -2,7 +2,7 @@
 
 This sample makes use of the ***batch-1.0*** and ***batchManagement-1.0*** features of the WebSphere Liberty Profile.
 
-It is a MDB application that demos the job log as an event functionality of the batch product. It uses batch job log event messages to create a local job log directory structure with the actual batch job log files. 
+It is a MDB application that demos the job log as an event functionality of the batch product. It receives batch job log event messages from all the servers in the Liberty environment that have batch events enabled and produce job logs. These messages are used to create a local job log directory structure with the actual batch job logs. 
 
 **IMPORTANT:** This sample requires that batch job events and job logging are enabled within your liberty environment. For more information on these two topics please see the two links below.
 
@@ -11,9 +11,9 @@ It is a MDB application that demos the job log as an event functionality of the 
 
 ## Steps to set up and use this sample app
 
-**1.) Download the pre-built WAR file or build the WAR file yourself using the source code and maven**
+**1.) Download the pre-built WAR file or build the WAR file using the source code and maven**
 
-**2.) Place the WAR file in your desired server's "dropins" directory**
+**2.) Place the WAR file in the desired server's "dropins" directory**
 
 **3.) Update the server.xml file for the chosen server to include the following:**
 
