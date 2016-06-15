@@ -1,6 +1,6 @@
 # sample.batch.joblogevents
 
-This sample makes use of the ***batch-1.0*** and ***batchManagement-1.0*** features of the WebSphere Liberty Profile.
+This sample makes use of the ***batch-1.0*** and ***batchManagement-1.0*** features of WebSphere Liberty.
 
 It is a MDB application that demos the job log as an event functionality of the batch product. It receives batch job log event messages from all the servers in the Liberty environment that have batch events enabled and produce batch job logs. These messages are used to create one local job log directory structure with the actual batch job log files as opposed to having multiple job log directories across multiple servers. 
 
