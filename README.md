@@ -45,7 +45,7 @@ The steps below assume you are using two (or three) Liberty servers.  One server
     </jmsConnectionFactory>
 ```
 
-If using MQ as the messaging engine, use properties.wmqJms with appropriate values.  The first document link above has samples.**
+If using MQ as the messaging engine, use properties.wmqJms with appropriate values.  The first document link above has samples.
 
 **5.)  Configure a server to host the MDB and subscribe to batch event topic tree.  It will need to enable the wasJmsClient-2.0 feature.  If using the WebSphere messaging engine it will look like this:**
 
@@ -65,7 +65,7 @@ If using MQ as the messaging engine, use properties.wmqJms with appropriate valu
 
 __Note:__ This allows the MDB application to receive all the batch job log event messages, which contain the job log contents.
 
-If using MQ for the messaging engine the updates will look more like this:**
+If using MQ for the messaging engine the updates will look more like this:
 
 ```xml
 <jmsTopic id="JobLogEventTopic" jndiName="jms/batch/batchJobTopic">
@@ -86,11 +86,11 @@ If using MQ for the messaging engine the updates will look more like this:**
 </jmsActivationSpec>
 ```
 
-__Note:__ For a durable subscription a queue is required to hold the messages while the subscriber is not available.  That queue name must start 'SYSTEM.JMS'.  There is a default queue for this but we've created a different one here.**
+__Note:__ For a durable subscription a queue is required to hold the messages while the subscriber is not available.  That queue name must start 'SYSTEM.JMS'.  There is a default queue for this but we've created a different one here.  You'll need to change the annotations in the code to indicate you want a Durable subscription.
 
 **6.) Start the required servers and submit your batch job.**
 
-Now the MDB application will create a directory called "JobLogEvents" under the configured server's main directory. It will contain all of the batch job log parts from all servers that have batch events enabled and produce job log parts.**
+Now the MDB application will create a directory called "JobLogEvents" under the configured server's main directory. It will contain all of the batch job log parts from all servers that have batch events enabled and produce job log parts.
 
 **Example directory structure created:**
 
