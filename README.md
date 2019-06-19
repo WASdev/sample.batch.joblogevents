@@ -19,7 +19,7 @@ The steps below assume you are using two (or three) Liberty servers.  One server
 
 **3.) If using the WebSphere integrated messaging engine, configure the wasJmsServer-1.0 feature as well as the following:**
 
-'''xml
+```xml
 <wasJmsEndpoint host="*" 
 		  wasJmsPort="7280" 
 		  wasJmsSSLPort="7290" 
@@ -31,11 +31,11 @@ The steps below assume you are using two (or three) Liberty servers.  One server
 		forceReliability="ReliablePersistent" 
 		receiveAllowed="true"/>
 </messagingEngine>    
-'''
+```
 
 **4.)  Configure a server to run your batch job.  The server must also be configured to publish batch event messages, which requires the batchManagement-1.0 as well as the wasJmsClient-2.0 features. Configuration to publish to the WebSphere messaging engine described above would look like this:**
 
-'''xml
+```xml
     <batchJmsEvents connectionFactoryRef="batchConnectionFactory" />
     
     <jmsConnectionFactory id="batchConnectionFactory" jndiName="jms/batch/connectionFactory">
@@ -43,8 +43,7 @@ The steps below assume you are using two (or three) Liberty servers.  One server
        remoteServerAddress="localhost:7280:BootstrapBasicMessaging"
        />
     </jmsConnectionFactory>
-
-'''
+```
 
 If using MQ as the messaging engine, use properties.wmqJms with appropriate values.  The first document link above has samples.**
 
@@ -63,11 +62,12 @@ If using MQ as the messaging engine, use properties.wmqJms with appropriate valu
 		/>
 </jmsActivationSpec>
 ```
+
 __Note:__ This allows the MDB application to receive all the batch job log event messages, which contain the job log contents.
 
 If using MQ for the messaging engine the updates will look more like this:**
 
-'''xml
+```xml
 <jmsTopic id="JobLogEventTopic" jndiName="jms/batch/batchJobTopic">
  <properties.wmqJms
    baseTopicName=“batch/jobs/execution/jobLogPart”
@@ -84,7 +84,7 @@ If using MQ for the messaging engine the updates will look more like this:**
       hostName=“wg31.washington.ibm.com”
       port=“1414" />
 </jmsActivationSpec>
-'''
+```
 
 __Note:__ For a durable subscription a queue is required to hold the messages while the subscriber is not available.  That queue name must start 'SYSTEM.JMS'.  There is a default queue for this but we've created a different one here.**
 
