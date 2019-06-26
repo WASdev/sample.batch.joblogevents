@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.ejb.MessageDriven;
+import javax.ejb.ActivationConfigProperty;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -33,9 +34,20 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 
 /**
- * An MDB to subscribe to job log events and create the job log directory structure
+ * An MDB to subscribe to job log events and create the job log directory structure.
+ * Change the subscriptionDurability to "Durable" for a durable subscription.
  */
-@MessageDriven
+@MessageDriven(
+    activationConfig = { 
+    @ActivationConfigProperty(propertyName = "subscriptionName", 
+            propertyValue = "JOBLOGS"),
+    @ActivationConfigProperty(propertyName = "clientId", 
+            propertyValue = "LOGMON"),                            
+    @ActivationConfigProperty(propertyName = "subscriptionDurability", 
+            propertyValue = "NonDurable")
+    }            
+)
+
 public class JobLogEventsSubscriber implements MessageListener {
 
     @Override
