@@ -6,8 +6,8 @@ It is a MDB application that demos the job log as an event functionality of the 
 
 **IMPORTANT:** This sample requires that batch job events and job logging are enabled within your liberty environment. For more information on these two topics please see the two links below.
 
-* [A document](http://www.ibm.com/support/knowledgecenter/en/was_beta_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/twlp_batch_monitoring.html) discussing how to enable batch job event publishing for Java Batch in WebSphere
-* [A document](http://www.ibm.com/support/knowledgecenter/en/was_beta_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/rwlp_batch_view_joblog.html) going into more detail about job logging for Java Batch in WebSphere
+* [A document](https://www.ibm.com/support/knowledgecenter/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_batch_monitoring.html) discussing how to enable batch job event publishing for Java Batch in WebSphere
+* [A document](https://www.ibm.com/support/knowledgecenter/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/rwlp_batch_view_joblog.html) going into more detail about job logging for Java Batch in WebSphere
 
 The steps below assume you are using two (or three) Liberty servers.  One server actually runs the batch job.  A second server hosts the MDB that captures the job log.  A third server may be configured to host the WebSphere messaging engine (or you can use MQ).  This can all be combined into fewer servers, but the separation seemed to make it clearer what is going on.
 
